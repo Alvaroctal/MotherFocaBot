@@ -1,46 +1,45 @@
 <?php
-	
-	//--------------------------------------------------------------------------
-	//	Core
-	//--------------------------------------------------------------------------
 
-	include '../core/core.php';
+//--------------------------------------------------------------------------
+//	Core
+//--------------------------------------------------------------------------
 
-    include $core->getLibrary('AltoRouter');
-    include $core->getLibrary('vendor/autoload');
+include '../core/core.php';
 
-    use Telegram\Bot\Api;
+include $core->getLibrary('AltoRouter');
+include $core->getLibrary('vendor/autoload');
 
-	$router = new AltoRouter();
+use Telegram\Bot\Api;
 
-    $router->addRoutes(array(
-        array( 'GET', '/telegram/'.$core->getTelegram('webhook').'/', 'webhook'),
-        array( 'POST', '/telegram/'.$core->getTelegram('webhook').'/', 'telegram')
-    ));
+$router = new AltoRouter();
 
-    $match = $router->match();
+$router->addRoutes(array(
+    array( 'GET', '/telegram/'.$core->getTelegram('webhook').'/', 'webhook'),
+    array( 'POST', '/telegram/'.$core->getTelegram('webhook').'/', 'telegram')
+));
 
-    $output = array();
+$match = $router->match();
 
-	if( $match ) {
+$output = array();
 
-        // Create the bot
+if( $match ) {
 
-        $telegram = new Telegram\Bot\Api($core->getTelegram('token'));
+    // Create the bot
 
-		if (file_exists('controllers/'.$match['target'].'.php')) { 
-            include 'controllers/'.$match['target'].'.php';
-        } 
-        else {
-            $output['status'] = 0;
-            $output['code'] = 'no-controller';
-            $output['return'] = 'Internal error, unable to find the controller';
-        }
-	} else {
-		$output['status'] = 0;
-        $output['code'] = 'no-found';
-        $output['return'] = 'This option cant be found';
-	}
+    $telegram = new Telegram\Bot\Api($core->getTelegram('token'));
 
-    echo json_encode($output);
-?>
+    if (file_exists('controllers/'.$match['target'].'.php')) {
+        include 'controllers/'.$match['target'].'.php';
+    }
+    else {
+        $output['status'] = 0;
+        $output['code'] = 'no-controller';
+        $output['return'] = 'Internal error, unable to find the controller';
+    }
+} else {
+    $output['status'] = 0;
+    $output['code'] = 'no-found';
+    $output['return'] = 'This option cant be found';
+}
+
+echo json_encode($output);

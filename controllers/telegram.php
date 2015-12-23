@@ -8,7 +8,7 @@
 	include 'commands/kitten.php';
 	include 'commands/hoygan.php';
 	include 'commands/getID.php';
-	include 'commands/random.php';
+	include 'commands/moza.php';
 
 	//--------------------------------------------------------------------------
 	//	Connection
@@ -19,7 +19,7 @@
 		Telegram\Bot\Commands\Hoygan::class,
 		Telegram\Bot\Commands\Kitten::class,
 		Telegram\Bot\Commands\GetID::class,
-		Telegram\Bot\Commands\Random::class,
+		Telegram\Bot\Commands\Moza::class,
 	]);
 	$telegram->commandsHandler(true);
 ?>

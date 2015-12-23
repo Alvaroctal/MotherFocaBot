@@ -27,11 +27,12 @@ class Help extends Command
         $commands = $this->telegram->getCommands();
 
         $response = '';
+        // TODO: fix $name variable next line
         $response .= sprintf('Lista de Comandos:'. $name.PHP_EOL);
         $response .= sprintf(PHP_EOL);
         foreach ($commands as $name => $command) {
             if ($name != 'help') {
-                $response .= sprintf('/%s %s' . PHP_EOL, $name, $command->getPattern());
+                $response .= sprintf('/%s %s' . PHP_EOL, $name, $command->getDescription());
             }
         }
 
