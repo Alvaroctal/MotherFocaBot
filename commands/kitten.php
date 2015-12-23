@@ -26,7 +26,7 @@ class Kitten extends Command
      */
     public function handle($arguments)
     {
-        $path = 'commands/data/cats/cats_cats_'.sprintf("%02d", rand(1, 99)).'.jpg';
+        $path = 'data/cats/cats_cats_'.sprintf("%02d", rand(1, 99)).'.jpg';
 
         $this->replyWithPhoto($path);
     }
