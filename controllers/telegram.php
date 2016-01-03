@@ -9,6 +9,7 @@
 	include 'commands/hoygan.php';
 	include 'commands/getID.php';
 	include 'commands/moza.php';
+	include 'commands/aoe.php';
 
 	//--------------------------------------------------------------------------
 	//	Connection
@@ -20,6 +21,7 @@
 		Telegram\Bot\Commands\Kitten::class,
 		Telegram\Bot\Commands\GetID::class,
 		Telegram\Bot\Commands\Moza::class,
+		Telegram\Bot\Commands\AoE::class,
 	]);
 	$telegram->commandsHandler(true);
 ?>
