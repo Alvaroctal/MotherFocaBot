@@ -14,8 +14,9 @@ use Telegram\Bot\Api;
 $router = new AltoRouter();
 
 $router->addRoutes(array(
-    array( 'GET', '/telegram/'.$core->getTelegram('webhook').'/', 'webhook'),
-    array( 'POST', '/telegram/'.$core->getTelegram('webhook').'/', 'telegram')
+    array( 'GET', '/telegram/'.$core->getTelegram('webhook', 'telegram').'/', 'webhook'),
+    array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'telegram').'/', 'telegram'),
+    array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'sendMessage').'/', 'sendMessage'),
 ));
 
 $match = $router->match();
