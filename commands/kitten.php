@@ -3,7 +3,7 @@
 namespace Telegram\Bot\Commands;
 
 /**
- * Class HelpCommand
+ * Class Kitten
  *
  * @package Telegram\Bot\Commands
  */
@@ -17,7 +17,7 @@ class Kitten extends Command
     /**
      * @var string Command Description
      */
-    protected $description = "Help command, Get a list of commands";
+    protected $description = "Un gatete al año no hace daño";
 
     protected $patter = '';
 

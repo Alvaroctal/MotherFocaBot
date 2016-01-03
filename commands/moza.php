@@ -3,7 +3,7 @@
 namespace Telegram\Bot\Commands;
 
 /**
- * Class HelpCommand
+ * Class Moza
  *
  * @package Telegram\Bot\Commands
  */

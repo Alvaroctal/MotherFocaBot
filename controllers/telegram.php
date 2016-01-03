@@ -10,6 +10,7 @@
 	include 'commands/getID.php';
 	include 'commands/moza.php';
 	include 'commands/aoe.php';
+	include 'commands/parse.php';
 
 	//--------------------------------------------------------------------------
 	//	Connection
@@ -22,6 +23,7 @@
 		Telegram\Bot\Commands\GetID::class,
 		Telegram\Bot\Commands\Moza::class,
 		Telegram\Bot\Commands\AoE::class,
+		Telegram\Bot\Commands\Parse::class,
 	]);
 	$telegram->commandsHandler(true);
 ?>

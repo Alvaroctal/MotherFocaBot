@@ -3,7 +3,7 @@
 namespace Telegram\Bot\Commands;
 
 /**
- * Class HelpCommand
+ * Class Hoygan
  *
  * @package Telegram\Bot\Commands
  */
@@ -17,7 +17,7 @@ class Hoygan extends Command
     /**
      * @var string Command Description
      */
-    protected $description = "Help command, Get a list of commands";
+    protected $description = "hUnas vuenas patadas hal dicxionarrio, wey";
 
     protected $patter = '';
 

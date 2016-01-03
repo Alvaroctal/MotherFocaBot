@@ -3,7 +3,7 @@
 namespace Telegram\Bot\Commands;
 
 /**
- * Class HelpCommand
+ * Class AoE
  *
  * @package Telegram\Bot\Commands
  */
@@ -17,7 +17,7 @@ class AoE extends Command
     /**
      * @var string Command Description
      */
-    protected $description = "Returns a aoe response";
+    protected $description = "Comando del AoE";
 
     /**
      * @inheritdoc
@@ -28,7 +28,10 @@ class AoE extends Command
             $id = (int) $arguments;
             $aoe = json_decode(file_get_contents('data/aoe.json'), true);
 
+            if ($id >= count($aoe)) $id = 0;
+
             $this->replyWithMessage($aoe[$id]);
+            
         }
         else {
             $this->replyWithMessage('/aoe <codigo>');

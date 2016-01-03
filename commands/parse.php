@@ -3,21 +3,21 @@
 namespace Telegram\Bot\Commands;
 
 /**
- * Class HelpCommand
+ * Class Parse
  *
  * @package Telegram\Bot\Commands
  */
-class Help extends Command
+class Parse extends Command
 {
     /**
      * @var string Command Name
      */
-    protected $name = "help";
+    protected $name = "parse";
 
     /**
      * @var string Command Description
      */
-    protected $description = "Lista de comandos";
+    protected $description = "Returns a parsed command list";
 
     /**
      * @inheritdoc
@@ -28,11 +28,9 @@ class Help extends Command
 
         $response = '';
         
-        $response .= sprintf('Lista de Comandos:'. $name.PHP_EOL);
-        $response .= sprintf(PHP_EOL);
         foreach ($commands as $name => $command) {
-            if ($name != $this->name && $name != 'parse') {
-                $response .= sprintf('/%s %s' . PHP_EOL, $name, $command->getDescription());
+            if ($name != $this->name) {
+                $response .= sprintf('%s - %s' . PHP_EOL, strtolower($name), $command->getDescription());
             }
         }
 

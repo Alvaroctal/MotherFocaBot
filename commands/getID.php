@@ -3,7 +3,7 @@
 namespace Telegram\Bot\Commands;
 
 /**
- * Class HelpCommand
+ * Class GetID
  *
  * @package Telegram\Bot\Commands
  */
@@ -12,12 +12,12 @@ class GetID extends Command
     /**
      * @var string Command Name
      */
-    protected $name = "getID";
+    protected $name = "id";
 
     /**
      * @var string Command Description
      */
-    protected $description = "Let's you know your telegram ID";
+    protected $description = "Devuelve tu ID y grupo de telegram";
 
     /**
      * @inheritdoc
