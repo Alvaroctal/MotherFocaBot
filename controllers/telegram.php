@@ -11,6 +11,8 @@
 	include 'commands/moza.php';
 	include 'commands/aoe.php';
 	include 'commands/parse.php';
+	include 'commands/espalet.php';
+	include 'commands/mozo.php';
 
 	//--------------------------------------------------------------------------
 	//	Connection
@@ -24,6 +26,8 @@
 		Telegram\Bot\Commands\Moza::class,
 		Telegram\Bot\Commands\AoE::class,
 		Telegram\Bot\Commands\Parse::class,
+		Telegram\Bot\Commands\Espalet::class,
+		Telegram\Bot\Commands\Mozo::class,
 	]);
 	$telegram->commandsHandler(true);
 ?>
