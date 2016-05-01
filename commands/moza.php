@@ -9,8 +9,6 @@ namespace Telegram\Bot\Commands;
  */
 class Moza extends Command
 {
-    const TRIES = 3;
-
     /**
      * @var string Command Name
      */
@@ -26,19 +24,11 @@ class Moza extends Command
      */
     public function handle($arguments)
     {
-        $path = 'data/mozas/'.sprintf("%02d", rand(1, 99)).'.jpg';
+        $path = 'data/mozas/';
 
-        for($i = 0; $i < self::TRIES; $i++) {
-            if(is_file($path)) {
-                break;
-            }
+        // Remove . and .. directories
+        $files = array_slice(scandir($path), 2);
 
-            $path = 'data/mozas/'.sprintf("%02d", rand(1, 99)).'.jpg';
-        }
-
-        if(is_file($path)) {
-            $this->replyWithPhoto($path);
-        }
-
+        $this->replyWithPhoto($path . $files[mt_rand(0, count($files))]);
     }
 }
