@@ -17,6 +17,7 @@ $router->addRoutes(array(
     array( 'GET', '/telegram/'.$core->getTelegram('webhook', 'telegram').'/', 'webhook'),
     array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'telegram').'/', 'telegram'),
     array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'sendMessage').'/', 'sendMessage'),
+    array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'github').'/', 'github'),
 ));
 
 $match = $router->match();
@@ -43,4 +44,4 @@ if( $match ) {
     $output['return'] = 'This option cant be found';
 }
 
-echo json_encode($output);
+if ($output) echo json_encode($output);
