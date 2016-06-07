@@ -6,18 +6,18 @@
 
 include '../core/core.php';
 
-include $core->getLibrary('AltoRouter');
-include $core->getLibrary('vendor/autoload');
+include $GLOBALS['core']->getLibrary('AltoRouter');
+include $GLOBALS['core']->getLibrary('vendor/autoload');
 
 use Telegram\Bot\Api;
 
 $router = new AltoRouter();
 
 $router->addRoutes(array(
-    array( 'GET', '/telegram/'.$core->getTelegram('webhook', 'telegram').'/', 'webhook'),
-    array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'telegram').'/', 'telegram'),
-    array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'sendMessage').'/', 'sendMessage'),
-    array( 'POST', '/telegram/'.$core->getTelegram('webhook', 'github').'/', 'github'),
+    array( 'GET', '/telegram/'.$GLOBALS['core']->getTelegram('webhook', 'telegram').'/', 'webhook'),
+    array( 'POST', '/telegram/'.$GLOBALS['core']->getTelegram('webhook', 'telegram').'/', 'telegram'),
+    array( 'POST', '/telegram/'.$GLOBALS['core']->getTelegram('webhook', 'sendMessage').'/', 'sendMessage'),
+    array( 'POST', '/telegram/'.$GLOBALS['core']->getTelegram('webhook', 'github').'/', 'github'),
 ));
 
 $match = $router->match();
@@ -28,7 +28,7 @@ if( $match ) {
 
     // Create the bot
 
-    $telegram = new Telegram\Bot\Api($core->getTelegram('token'));
+    $telegram = new Telegram\Bot\Api($GLOBALS['core']->getTelegram('token'));
 
     if (file_exists('controllers/'.$match['target'].'.php')) {
         include 'controllers/'.$match['target'].'.php';

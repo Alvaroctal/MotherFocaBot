@@ -36,6 +36,6 @@ class Help extends Command
             }
         }
 
-        $this->replyWithMessage($response);
+        $this->replyWithMessage(['text' => $response]);
     }
 }

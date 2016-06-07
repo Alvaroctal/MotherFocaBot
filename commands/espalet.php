@@ -9,7 +9,6 @@ namespace Telegram\Bot\Commands;
  */
 class Espalet extends Command
 {
-
     /**
      * @var string Command Name
      */
@@ -34,7 +33,7 @@ class Espalet extends Command
         $fecha = date("d/m/Y h:i:s", strtotime($header['Last-Modified']));
 
         if(is_file($temp)) {
-            $this->replyWithPhoto($temp, $fecha);
+            $this->replyWithPhoto(['photo' => $temp, 'caption' => $fecha]);
         }
     }
 

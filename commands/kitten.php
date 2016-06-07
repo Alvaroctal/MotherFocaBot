@@ -28,7 +28,7 @@ class Kitten extends Command
     {
         $path = 'data/cats/cats_cats_'.sprintf("%02d", rand(1, 99)).'.jpg';
 
-        $this->replyWithPhoto($path);
+        $this->replyWithPhoto(['photo' => $path]);
     }
 
     public function getPattern() {

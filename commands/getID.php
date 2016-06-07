@@ -25,8 +25,7 @@ class GetID extends Command
     public function handle($arguments)
     {
         $response = 'Tu id de telegram: '. $this->update['message']['from']['id'];
-        $response .= ($this->update['message']['from']['id'] != $this->update['message']['chat']['id'] ? '
-El id del grupo: '.$this->update['message']['chat']['id'] : '');
-        $this->replyWithMessage($response);
+        $response .= ($this->update['message']['from']['id'] != $this->update['message']['chat']['id'] ? PHP_EOL.'El id del grupo: '.$this->update['message']['chat']['id'] : '');
+        $this->replyWithMessage(['text' => $response]);
     }
 }

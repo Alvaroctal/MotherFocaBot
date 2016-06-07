@@ -30,11 +30,11 @@ class AoE extends Command
 
             if ($id >= count($aoe)) $id = 0;
 
-            $this->replyWithMessage($aoe[$id]);
+            $this->replyWithMessage(['text' => $aoe[$id]]);
             
         }
         else {
-            $this->replyWithMessage('/aoe <codigo>');
+            $this->replyWithMessage(['text' => '/aoe <codigo>']);
         }
     }
 }

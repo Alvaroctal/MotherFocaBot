@@ -14,6 +14,7 @@
 	include 'commands/espalet.php';
 	include 'commands/mozo.php';
 	include 'commands/random.php';
+	include 'commands/fws.php';
 
 	//--------------------------------------------------------------------------
 	//	Connection
@@ -30,5 +31,6 @@
 		Telegram\Bot\Commands\Espalet::class,
 		Telegram\Bot\Commands\Mozo::class,
 		Telegram\Bot\Commands\Random::class,
+		Telegram\Bot\Commands\FWS::class,
 	]);
 	$telegram->commandsHandler(true);

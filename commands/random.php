@@ -45,9 +45,9 @@ class Random extends Command
         $max = intval($max);
 
         if ($min >= $max) {
-            $this->replyWithMessage(self::USAGE_INFORMATION . PHP_EOL . self::MIN_BIGGER_THAN_MAX);
+            $this->replyWithMessage(['text' => self::USAGE_INFORMATION . PHP_EOL . self::MIN_BIGGER_THAN_MAX]);
         } else {
-            $this->replyWithMessage(mt_rand($min, $max));
+            $this->replyWithMessage(['text' => mt_rand($min, $max)]);
         }
 
         return $this;

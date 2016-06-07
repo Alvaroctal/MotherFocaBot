@@ -29,6 +29,6 @@ class Moza extends Command
         // Remove . and .. directories
         $files = array_slice(scandir($path), 2);
 
-        $this->replyWithPhoto($path . $files[mt_rand(0, count($files))]);
+        $this->replyWithPhoto(['photo' => $path . $files[mt_rand(0, count($files))]]);
     }
 }

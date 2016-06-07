@@ -55,7 +55,7 @@ class Hoygan extends Command
             $arguments = "cuentenme un poco su vida";
         }
 
-        $this->replyWithMessage('hoygan, '.str_replace(array_keys($changes), array_values($changes), strtolower($arguments)));
+        $this->replyWithMessage(['text' => 'hoygan, '.str_replace(array_keys($changes), array_values($changes), strtolower($arguments))]);
     }
 
     public function getPattern() {

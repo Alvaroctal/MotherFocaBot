@@ -28,7 +28,7 @@ class Mozo extends Command
     {
         $insultosSuaves = json_decode(file_get_contents('data/insultosSuaves.json'), true);
 
-        $this->replyWithMessage('Programalo tu, '.$insultosSuaves[mt_rand(0, count($insultosSuaves) - 1)]);
+        $this->replyWithMessage(['text' => 'Programalo tu, '.$insultosSuaves[mt_rand(0, count($insultosSuaves) - 1)]]);
     }
 
     public function getPattern() {

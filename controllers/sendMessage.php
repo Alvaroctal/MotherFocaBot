@@ -3,7 +3,7 @@
 	$group = (int) $_POST['chat'];
 
 	if ($group) {
-		$telegram->sendMessage($group, $_POST['message'], 'Markdown');
+		$telegram->sendMessage('chat_id' => $group, 'text' => $_POST['message'], 'parse_mode' => 'Markdown');
 
 		$output['status'] = 1;
 		$output['code'] = 'send-message';

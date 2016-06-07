@@ -1,6 +1,6 @@
 <?php
 
-    $group = $core->getTelegram('group');
+    $group = $GLOBALS['core']->getTelegram('group');
 
     $json = json_decode(file_get_contents('php://input'), true);
 
@@ -11,5 +11,5 @@
 
     $message = $json['head_commit']['committer']['username'] .' ha publicado un nuevo commit:'. PHP_EOL . '['.$title.']('.$json['head_commit']['url'].')'; //. PHP_EOL . implode(PHP_EOL, $message);
 
-    $telegram->sendMessage($group, $message, 'Markdown');
+    $telegram->sendMessage(['chat_id' => $group, 'text' => $message, 'parse_mode' => 'Markdown']);
 ?>
